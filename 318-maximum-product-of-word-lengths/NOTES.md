@@ -1,1 +1,1 @@
-​
+create another vector to represent the string as a 26 bit int. if bitwise & of any two numbers is 0, then they don't have any letter common. calculate max pdt
