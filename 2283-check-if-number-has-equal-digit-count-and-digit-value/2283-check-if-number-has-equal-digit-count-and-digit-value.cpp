@@ -3,7 +3,7 @@ class Solution
     public:
         bool digitCount(string num)
         {
-            map<int, int> m;
+            unordered_map<int, int> m;
             for (auto c: num)
                 ++m[c - '0'];
             for (int i = 0; i < num.size(); ++i)
