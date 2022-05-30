@@ -1,1 +1,1 @@
-​
+mid=beg+(end-beg)/2 to avoid int overflow.
