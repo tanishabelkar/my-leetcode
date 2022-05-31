@@ -4,7 +4,6 @@ public:
     
     int toInt(string s)
     {
-        //cout<<s<<" ";
         int res=0;
         for(int i=0;i<s.size();++i)
         {
@@ -18,10 +17,9 @@ public:
     {
         if(k>s.size())
             return false;
-        set<int> st;
+        unordered_set<int> st;
         for(int i=0;i<=s.size()-k;++i)
             st.insert(toInt(s.substr(i,k)));
-        //cout<<st.size()<<" ";
         return st.size()==(1<<k);
     }
 };
