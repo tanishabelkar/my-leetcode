@@ -22,10 +22,7 @@ public:
     
     int maxAreaOfIsland(vector<vector<int>>& grid) 
     {
-        visit = grid;
-        for(int i=0;i<visit.size();++i)
-            for(int j=0;j<visit[i].size();++j) visit[i][j]=0;
-        
+        visit.resize(grid.size(), vector<int>(grid[0].size(),0));
         int ans=0;
         for(int i=0;i<grid.size();++i)
         {
