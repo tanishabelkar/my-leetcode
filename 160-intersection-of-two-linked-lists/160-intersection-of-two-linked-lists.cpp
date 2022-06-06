@@ -16,18 +16,16 @@ public:
         if(a==nullptr || b==nullptr)
             return nullptr;
         
-        while(a!=nullptr)
+        while(a!=b)
         {
-            b=headB;
-            while(b!=nullptr)
-            {
-                if(b == a)
-                    return a;
-                b=b->next;
-            }
-            a=a->next;
+            if(a==nullptr)
+                a=headB;
+            else a=a->next;
+            if(b==nullptr)
+                b=headA;
+            else b=b->next;
         }
         
-        return nullptr;
+        return a;
     }
 };
