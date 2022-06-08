@@ -1,1 +1,1 @@
-use O(n) approach to find the substr. return index with i-needle.size()
+​
