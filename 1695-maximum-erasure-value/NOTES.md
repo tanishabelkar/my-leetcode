@@ -1,0 +1,1 @@
+Solve with prefix sum. find the start and end indexes of subarrays with unique elements. and then store max_score.
