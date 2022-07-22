@@ -1,2 +1,3 @@
 # Write your MySQL query statement below
-select Distinct(email) from Person P where (select count(email) from Person P2 where P2.email = P.email) > 1;
+select email from Person 
+group by email having count(email)>1
