@@ -1,0 +1,1 @@
+after finding the xor of all numbers, we separate them based on the first different bit in them. It is guaranteed that each set will have one number from the 2.
