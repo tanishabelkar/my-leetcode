@@ -3,7 +3,7 @@ class Solution
     public:
         int countKDifference(vector<int> &nums, int k)
         {
-            map<int, int> freq;
+            unordered_map<int, int> freq;
             for (auto n: nums) ++freq[n];
             int ans = 0;
 
