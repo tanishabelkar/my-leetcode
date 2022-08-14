@@ -1,0 +1,1 @@
+check if s is a substring of goal*2.
