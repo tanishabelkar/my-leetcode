@@ -3,7 +3,7 @@ class Solution
 public:
     int countConsistentStrings(string allowed, vector<string>& words) 
     {
-        map<char, int> a;
+        unordered_map<char, int> a;
         int ans=0;
         for(auto c: allowed) ++a[c];
         for(auto w:words)
