@@ -1,0 +1,1 @@
+similar to checking substring except here, we do not need to reset the pointer of the second string.
