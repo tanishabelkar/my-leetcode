@@ -3,7 +3,7 @@ class Solution
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) 
     {
-        map<int, int> nge;
+        unordered_map<int, int> nge;
         stack<int> s;
         for (int i = nums2.size() - 1; i >= 0; --i)
         {
