@@ -1,1 +1,1 @@
-​
+Since every element is unique, we can make a map and store the NGE using stack and then make the result array of size nums1.size()
