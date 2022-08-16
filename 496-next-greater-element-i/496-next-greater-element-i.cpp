@@ -22,10 +22,8 @@ public:
         }
         
         vector<int> res(nums1.size());
-        for(int i=0;i<nums1.size();++i)
-        {
+        for(int i = 0; i < nums1.size(); ++i)
             res[i] = nge[nums1[i]];
-        }
         
         return res;
     }
