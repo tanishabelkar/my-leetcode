@@ -1,1 +1,1 @@
-​
+take an ordered map, store frequency. Count the longest continous sequence.
