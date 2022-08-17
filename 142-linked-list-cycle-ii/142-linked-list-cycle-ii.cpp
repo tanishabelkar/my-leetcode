@@ -1,9 +1,9 @@
 /**
  *Definition for singly-linked list.
  *struct ListNode {
- *   int val;
- *   ListNode * next;
- *   ListNode(int x) : val(x), next(NULL) {}
+ *  int val;
+ *  ListNode * next;
+ *  ListNode(int x) : val(x), next(NULL) {}
  *};
  */
 class Solution
@@ -13,14 +13,21 @@ class Solution
         {
             if (!head)
                 return nullptr;
-            unordered_map<ListNode*, int> m;
-            ListNode *beg = head;
-            while (beg != nullptr)
+            ListNode *slow = head, *fast = head->next;
+            while (slow != nullptr && fast != nullptr && fast->next != nullptr)
             {
-                m[beg] += 1;
-                if (m[beg] > 1)
-                    return beg;
-                beg = beg->next;
+                if (slow == fast)
+                {
+                    ListNode *res = head;
+                    while (slow->next != res)
+                    {
+                        slow = slow->next;
+                        res = res->next;
+                    }
+                    return res;
+                }
+                slow = slow->next;
+                fast = fast->next->next;
             }
             return nullptr;
         }
