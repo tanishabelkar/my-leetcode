@@ -1,0 +1,2 @@
+We will calculate the difference between consecutive days and then find the maximum sum subarray. The maximum sum of the subarray will be the maximum profit that can be achieved.
+Watch out for 0 profit. If the maximum sum is < 0, then return 0.
