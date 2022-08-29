@@ -2,21 +2,37 @@ class Solution
 {
     public:
 
-        int maxSubarraySumCircular(vector<int> &nums)
+        int findMin(vector<int> &n)
         {
-            int maxs = nums[0], lsum = nums[0], sum = nums[0], mins = nums[0], rsum = nums[0];
-            for (int i = 1; i < nums.size(); ++i)
+            int lsum = n[0], gsum = n[0];
+            for (int i = 1; i < n.size(); ++i)
             {
-                sum += nums[i];
-                lsum = max(lsum + nums[i], nums[i]);
-                maxs = max(lsum, maxs);
-
-                rsum = min(rsum + nums[i], nums[i]);
-                mins = min(rsum, mins);
+                lsum = min(n[i], lsum + n[i]);
+                gsum = min(lsum, gsum);
             }
-           	//cout<<sum<<" "<<maxs<<" "<<mins<<"\n";
-            if (mins == sum)
-                return maxs;
-            return max(sum - mins, maxs);
+            return gsum;
         }
+
+    int findMax(vector<int> &n)
+    {
+        int lsum = n[0], gsum = n[0];
+        for (int i = 1; i < n.size(); ++i)
+        {
+            lsum = max(n[i], lsum + n[i]);
+            gsum = max(lsum, gsum);
+        }
+        return gsum;
+    }
+
+    int maxSubarraySumCircular(vector<int> &nums)
+    {
+        int maxs = INT_MIN, mins = INT_MAX;
+        maxs = findMax(nums);
+        mins = findMin(nums);
+        int sum = nums[0];
+        for (int i = 1; i < nums.size(); ++i) sum += nums[i];
+        if (mins == sum)
+            return maxs;
+        else return max(maxs, sum - mins);
+    }
 };
