@@ -6,15 +6,15 @@ class Solution
             if (values.size() == 2)
                 return values[0] + values[1] - 1;
 
-            int ans = INT_MIN;
-            vector<int> dp(values.size());
-            dp[0] = values[0];
-
+            int ans = INT_MIN, l=0;
+            
             for (int i = 1; i < values.size(); ++i)
-                dp[i] = max(dp[i - 1], values[i] + i);
-            for (int i = 1; i < dp.size(); ++i)
-                ans = max(ans, dp[i - 1] + values[i] - i);
-
+            {
+                ans=max(ans, values[l]+values[i]+l-i);
+                if(values[i]+i >= values[l]+l)
+                    l=i;
+            }
+            
             return ans;
         }
 };
