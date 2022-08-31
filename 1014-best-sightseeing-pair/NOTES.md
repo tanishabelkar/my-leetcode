@@ -5,4 +5,5 @@ Then for each end value, calculate the total value and return max.
 ​
 Time: O(n)
 Space: O(1)
+We can optimize space by storing the optimal start site in a variable instead of an array
 ​
