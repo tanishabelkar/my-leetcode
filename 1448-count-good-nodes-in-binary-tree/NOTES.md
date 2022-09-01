@@ -1,0 +1,1 @@
+make another function that takes curr node and the value at previous node as parameters. Compare with the value at the previous node. If the value is <=, calculate over the rest of tree with the previous node value being the curr node value. else calculate over the rest of the tree with the previous node value being the previous node value.
