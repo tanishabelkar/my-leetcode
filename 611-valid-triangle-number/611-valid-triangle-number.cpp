@@ -11,7 +11,7 @@ class Solution
                     beg = mid + 1;
                 else end = mid - 1;
             }
-           	// cout << t << " " << beg << " " << end << "\n";
+           	
             return end;
         }
     int triangleNumber(vector<int> &nums)
@@ -23,13 +23,8 @@ class Solution
         for (int i = 0; i < nums.size() - 2; ++i)
         {
             for (int j = i + 1; j < nums.size() - 1; ++j)
-            {
                 ans += (help(nums, i, j) - j);
-            }
         }
-        cout << ans << "\n";
-        if (ans > 0)
-            return ans;
-        else return 0;
+        return ans;
     }
 };
