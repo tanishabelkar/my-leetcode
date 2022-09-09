@@ -6,12 +6,12 @@ class Solution
         {
             int req = (S + B) / 2;
             vector<int> ans(2, 0);
-            map<int, int> m;
+            unordered_map<int, int> m;
             for (auto b: big)
                 m[b]++;
             for (auto s: small)
             {
-                if (m.find(req - S + s) != m.end())
+                if (m[req - S + s] > 0)
                 {
                     ans[0] = s;
                     ans[1] = req - S + s;
