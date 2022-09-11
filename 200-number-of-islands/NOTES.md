@@ -1,0 +1,1 @@
+For every 1 that you find, perform dfs, and mark each visited node as 0. Every time you perform dfs, add 1 to the final answer.
