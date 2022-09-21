@@ -1,6 +1,6 @@
 class Solution 
 {
-    unordered_map<int, bool> vis;
+    vector<bool> vis;
     vector<vector<int>> res;
 public:
     
@@ -26,6 +26,7 @@ public:
     
     vector<vector<int>> subsets(vector<int>& nums) 
     {
+        vis.resize(nums.size());
         for(int i = 0; i < nums.size(); ++i)
             backtrack(nums, {}, 0, i);
         res.push_back(nums);
