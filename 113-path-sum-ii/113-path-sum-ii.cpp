@@ -16,7 +16,7 @@ public:
     
     void backtrack(TreeNode *root, int target, int curr, vector<int> path)
     {
-        if (!root)
+        if (root == nullptr)
             return;
         
         if (root->left == nullptr && root->right == nullptr && curr + root->val == target)
