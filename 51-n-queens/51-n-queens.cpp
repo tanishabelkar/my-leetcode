@@ -4,20 +4,21 @@ class Solution
 
     bool safe(vector<string> board, int r, int c)
     {
-       	//check row
+       	// check row
         for (int i = 0; i < board.size(); ++i)
         {
             if (i != c && board[r][i] == 'Q')
                 return false;
         }
 
-       	//check column
+       	// check column
         for (int i = 0; i < board[0].size(); ++i)
         {
             if (i != r && board[i][c] == 'Q')
                 return false;
         }
-
+        
+        // check diagonals
         int i = r - 1, j = c - 1;
         while (i >= 0 && j >= 0)
         {
@@ -55,11 +56,11 @@ class Solution
             return;
         else if (q == n)
         {
-            // for (auto b: board) cout << b << endl;
+           	// for (auto b: board) cout << b << endl;
             res.push_back(board);
             return;
         }
-        
+
         for (int i = 0; i < n; ++i)
         {
             if (board[row][i] == '.' && safe(board, row, i))
@@ -75,8 +76,9 @@ class Solution
         vector<vector < string>> solveNQueens(int n)
         {
             vector<string> b(n);
+            string s(n,'.');
             for (int i = 0; i < n; ++i)
-                b[i].append(n, '.');
+                b[i]=s;
             backtrack(b, 0, n, 0);
             return res;
         }
