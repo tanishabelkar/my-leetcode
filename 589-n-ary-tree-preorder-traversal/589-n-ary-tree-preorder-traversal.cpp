@@ -20,31 +20,22 @@ public:
 
 class Solution
 {
+    vector<int> res;
     public:
+    
+        void dft(Node *root)
+        {
+            if (root)
+            {
+                res.push_back(root->val);
+                for (auto c: root->children)
+                    dft(c);
+            }
+        }
 
         vector<int> preorder(Node *root)
         {
-            // base case
-            if (!root)
-                return vector<int> ();
-
-            vector<int> res;
-            stack<Node*> s;
-
-            s.push(root);
-
-            while (!s.empty())
-            {
-                Node *t = s.top();
-                s.pop();
-
-                res.push_back(t->val);
-                
-                // stack all the children in reverse
-                for (int i = t->children.size() - 1; i >= 0; --i)
-                    s.push(t->children[i]);
-            }
-
+            dft(root);
             return res;
         }
 };
