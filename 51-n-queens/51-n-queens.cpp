@@ -1,43 +1,83 @@
-class Solution {
-	vector<vector<string>> ans;
-public:
-	bool issafe(int r,int c,vector<string>&v,int n){
-		//column check 
-		for(int i=0;i<=r;i++){
-			if(v[i][c]=='Q') return false;
-		}
-		//diagonal check upper left side
-		int row=r,col=c;
-		while(row>=0 && col>=0){
-			if(v[row][col]=='Q') return false;
-			row--,col--;
-		}
-		//diagonal check upper right side
-		row=r,col=c;
-		while(row>=0 && col<n){
-			if(v[row][col]=='Q') return false;
-			row--,col++;
-		}
-		return true;
-	}
-	void helper(int r,vector<string> &v,int n){
-		 if(r==n){ //if row reaches end of the board 
-			 ans.push_back(v);
-			 return ;
-		 }
-		for(int i=0;i<n;i++){  //fixing row and traversing in column
-			if(issafe(r,i,v,n)){
-				v[r][i]='Q';
-				helper(r+1,v,n);
-				v[r][i]='.';
-			}
-		}
-	}
-	vector<vector<string>> solveNQueens(int n) {
-		vector<string> v;
-		string s(n,'.');
-		for(int i=0;i<n;i++) v.push_back(s);
-		helper(0,v,n);
-		return ans;
-	}
+class Solution
+{
+    vector<vector < string>> res;
+
+    bool safe(vector<string> board, int r, int c)
+    {
+       	//check row
+        for (int i = 0; i < board.size(); ++i)
+        {
+            if (i != c && board[r][i] == 'Q')
+                return false;
+        }
+
+       	//check column
+        for (int i = 0; i < board[0].size(); ++i)
+        {
+            if (i != r && board[i][c] == 'Q')
+                return false;
+        }
+
+        int i = r - 1, j = c - 1;
+        while (i >= 0 && j >= 0)
+        {
+            if (board[i][j] == 'Q')
+                return false;
+            --i, --j;
+        }
+        i = r + 1, j = c + 1;
+        while (i < board.size() && j < board.size())
+        {
+            if (board[i][j] == 'Q')
+                return false;
+            ++i, ++j;
+        }
+        i = r - 1, j = c + 1;
+        while (i >= 0 && j < board.size())
+        {
+            if (board[i][j] == 'Q')
+                return false;
+            --i, ++j;
+        }
+        i = r + 1, j = c - 1;
+        while (j >= 0 && i < board.size())
+        {
+            if (board[i][j] == 'Q')
+                return false;
+            ++i, --j;
+        }
+        return true;
+    }
+
+    void backtrack(vector<string> board, int q, int n, int row)
+    {
+        if (q > n)
+            return;
+        else if (q == n)
+        {
+            // for (auto b: board) cout << b << endl;
+            res.push_back(board);
+            return;
+        }
+        
+        for (int i = 0; i < n; ++i)
+        {
+            if (board[row][i] == '.' && safe(board, row, i))
+            {
+                board[row][i] = 'Q';
+                backtrack(board, 1 + q, n, row + 1);
+                board[row][i] = '.';
+            }
+        }
+    }
+
+    public:
+        vector<vector < string>> solveNQueens(int n)
+        {
+            vector<string> b(n);
+            for (int i = 0; i < n; ++i)
+                b[i].append(n, '.');
+            backtrack(b, 0, n, 0);
+            return res;
+        }
 };
