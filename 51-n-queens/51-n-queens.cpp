@@ -2,7 +2,7 @@ class Solution
 {
     vector<vector < string>> res;
 
-    bool safe(vector<string> board, int r, int c)
+    bool safe(vector<string> &board, int r, int c)
     {
        	// check row
         for (int i = 0; i < board.size(); ++i)
@@ -17,8 +17,8 @@ class Solution
             if (i != r && board[i][c] == 'Q')
                 return false;
         }
-        
-        // check diagonals
+
+       	// check diagonals
         int i = r - 1, j = c - 1;
         while (i >= 0 && j >= 0)
         {
@@ -50,7 +50,7 @@ class Solution
         return true;
     }
 
-    void backtrack(vector<string> board, int q, int n, int row)
+    void backtrack(vector<string> &board, int q, int n, int row)
     {
         if (q > n)
             return;
@@ -76,9 +76,9 @@ class Solution
         vector<vector < string>> solveNQueens(int n)
         {
             vector<string> b(n);
-            string s(n,'.');
+            string s(n, '.');
             for (int i = 0; i < n; ++i)
-                b[i]=s;
+                b[i] = s;
             backtrack(b, 0, n, 0);
             return res;
         }
