@@ -11,9 +11,6 @@ class Solution
     {
         res.push_back(temp);
 
-        if (idx >= temp.size())
-            return;
-
         for (int i = idx; i < temp.size(); ++i)
         {
             if (isalpha(temp[i]))
