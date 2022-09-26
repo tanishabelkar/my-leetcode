@@ -3,7 +3,7 @@ class Solution
     vector<string> res;
     char changeCase(char c)
     {
-        if (c >= 'a' && c <= 'z')
+        if (islower(c))
             return toupper(c);
         else return tolower(c);
     }
