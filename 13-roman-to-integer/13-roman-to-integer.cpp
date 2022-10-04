@@ -27,7 +27,7 @@ class Solution
     {
         if (idx >= s.size())
             return;
-        cout<<res<<" ";
+        // cout<<res<<" ";
         if (s[idx] == 'I')
         {
             if (idx < s.size() - 1 && (s[idx + 1] == 'V' || s[idx + 1] == 'X'))
