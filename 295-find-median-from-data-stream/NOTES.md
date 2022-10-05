@@ -1,0 +1,1 @@
+Keep the first half of the array in the form of a max heap, and the other in the form of a min heap.
