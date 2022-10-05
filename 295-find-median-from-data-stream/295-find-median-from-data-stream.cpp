@@ -1,6 +1,6 @@
 class MedianFinder
 {
-    priority_queue<int, vector <int>, greater <int>> minheap;
+    priority_queue<int, vector < int>, greater < int>> minheap;
     priority_queue<int> maxheap;
     public:
         MedianFinder() {}
@@ -28,17 +28,12 @@ class MedianFinder
                 {
                     int a = minheap.top();
                     minheap.pop();
-                    maxheap.push(a);
                     minheap.push(num);
+                    maxheap.push(a);
                 }
                 else maxheap.push(num);
             }
         }
-        /*cout<< "Sizes : " << minheap.size() << " " << maxheap.size() << " ";
-        if (!minheap.empty())
-            cout << minheap.top() << " " ;
-        if(!maxheap.empty())
-            cout << maxheap.top() << endl;*/
     }
 
     double findMedian()
