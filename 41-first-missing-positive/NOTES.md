@@ -1,1 +1,1 @@
-​
+Use current array as a hashmap. Place the positive numbers in their corresponding indices in the given array. then, the first index where *element != index + 1* will be the answer. if no element satisfies this condition, then the answer is the size of the array.
