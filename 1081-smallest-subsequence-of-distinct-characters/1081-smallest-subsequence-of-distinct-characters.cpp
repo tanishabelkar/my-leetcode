@@ -4,10 +4,10 @@ public:
     string smallestSubsequence(string s) 
     {
         stack<char> st;
-        map<char, int> lastInd; //store the last index of each char
+        unordered_map<char, int> lastInd; //store the last index of each char
         for (int i = 0; i < s.size(); ++i) lastInd[s[i]] = i;
         
-        map<char, bool> vis;
+        unordered_map<char, bool> vis;
         
         for (int i = 0; i < s.size(); ++i)
         {
