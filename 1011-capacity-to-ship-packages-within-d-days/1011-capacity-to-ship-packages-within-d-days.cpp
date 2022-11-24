@@ -1,7 +1,7 @@
 class Solution
 {
     public:
-        int countDays(vector<int> v, int cap)
+        int countDays(vector<int> &v, int cap)
         {
             int ans = 0, i = 0, s = 0;
             while (i < v.size())
@@ -16,15 +16,10 @@ class Solution
             }
             return ans;
         }
-    int sumOf(vector<int> &b)
-    {
-        int s=0;
-        for(auto x:b) s+=x;
-        return s;
-    }
     int shipWithinDays(vector<int> &weights, int days)
     {
-        int beg = *max_element(weights.begin(), weights.end()), end = sumOf(weights), mid;
+        int beg = *max_element(weights.begin(), weights.end()), end = 0, mid;
+        end = accumulate(weights.begin(), weights.end(), end);
 
         while (beg <= end)
         {
