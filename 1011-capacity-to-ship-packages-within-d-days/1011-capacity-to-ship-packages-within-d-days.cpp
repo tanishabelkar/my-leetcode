@@ -13,9 +13,7 @@ class Solution
                     ++i;
                 }
                 ++ans;
-                //cout<<s<<" ";
             }
-            //cout<<"\n";
             return ans;
         }
     int shipWithinDays(vector<int> &weights, int days)
@@ -33,7 +31,6 @@ class Solution
             else
                 beg = mid + 1;
         }
-        // cout<<beg<<" "<<mid<<" "<<end<<"\n";
         return beg;
     }
 };
