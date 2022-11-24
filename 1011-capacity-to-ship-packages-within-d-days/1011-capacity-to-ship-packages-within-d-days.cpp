@@ -16,10 +16,15 @@ class Solution
             }
             return ans;
         }
+    int sumOf(vector<int> &b)
+    {
+        int s=0;
+        for(auto x:b) s+=x;
+        return s;
+    }
     int shipWithinDays(vector<int> &weights, int days)
     {
-        int beg = *max_element(weights.begin(), weights.end()), end = 0, mid;
-        end = accumulate(weights.begin(), weights.end(), end);
+        int beg = *max_element(weights.begin(), weights.end()), end = sumOf(weights), mid;
 
         while (beg <= end)
         {
