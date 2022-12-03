@@ -12,16 +12,8 @@ class Solution
 
     bool detect(pair<int, int> src, vector<vector< char>> &grid)
     {
-        queue<pair<pair<int, int>, pair<int, int>>> q;
-        q.push(make_pair(src, make_pair(-1, -1)));
         char x = grid[src.first][src.second];
-        vis[src.first][src.second] = true;
-        while (!q.empty())
-        {
-            pair<int, int> curr = q.front().first, parent = q.front().second;
-            q.pop();
-
-            int dr[4] = { 0,
+        int dr[4] = { 0,
                 0,
                 -1,
                 1
@@ -30,6 +22,16 @@ class Solution
                 0,
                 0
             };
+        
+        queue<pair<pair<int, int>, pair<int, int>>> q;
+        q.push(make_pair(src, make_pair(-1, -1)));
+        
+        vis[src.first][src.second] = true;
+        
+        while (!q.empty())
+        {
+            pair<int, int> curr = q.front().first, parent = q.front().second;
+            q.pop();
 
             for (int i = 0; i < 4; ++i)
             {
