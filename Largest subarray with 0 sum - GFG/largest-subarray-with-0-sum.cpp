@@ -12,19 +12,23 @@ class Solution{
     public:
     int maxLen(vector<int>&arr, int n)
     {   
-        vector<int> psum(arr.size() + 1);
-        psum[0] = 0;
-        for (int i = 0; i < arr.size(); ++i)
-            psum[i + 1] = arr[i] + psum[i];
-        
-        unordered_map<int, int> last;
-        int ans;
-        for (int i = 0; i < psum.size(); ++i)
+        int psum[n], ans = 0;
+        psum[0] = arr[0];
+        for (int i = 1; i < n; ++i)
+            psum[i] = psum[i - 1] + arr[i];
+        map<int, int> mp;
+        for (int i = 0; i < n; ++i)
         {
-            if (last.find(psum[i]) != last.end())
-                ans = max(i - last[psum[i]], ans);
-            else
-                last[psum[i]] = i;
+            if (mp.find(psum[i]) == mp.end())
+            {
+                mp[psum[i]] = i;
+            }
+            else 
+            {
+                ans = max(ans, i - mp[psum[i]]);
+            }
+            if (psum[i] == 0)
+                ans = max(ans, i + 1);
         }
         
         return ans;
