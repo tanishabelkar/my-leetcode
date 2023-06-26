@@ -8,38 +8,33 @@ class Solution{
     public:
     int kthElement(int arr1[], int arr2[], int n, int m, int k)
     {
-        int l = 0, r = 0, last = 0;
-        while (k > 0 && l < n && r < m)
+        int i1 = 0, i2 = 0, ans;
+        while (k > 0 && i1 < n && i2 < m)
         {
-            if (arr1[l] < arr2[r])
+            if (arr1[i1] < arr2[i2]) 
             {
-                last = arr1[l];
-                l++;
+                ans = arr1[i1];
+                ++i1;
             }
-            else
+            else 
             {
-                last = arr2[r];
-                r++;
+                ans = arr2[i2];
+                ++i2;
             }
-            
-            k--;
+            --k;
         }
-        
-        while (k > 0 && l < n)
+        while (k > 0 && i1 < n)
         {
-            last = arr1[l];
-            l++;
-            k--;
+            ans = arr1[i1];
+            ++i1, --k;
         }
-        
-        while (k > 0 && r < m)
+        while (k > 0 && i2 < m)
         {
-            last = arr2[r];
-            r++;
-            k--;
+            ans = arr2[i2];
+            ++i2, --k;
         }
         
-        return last;
+        return ans;
     }
 };
 
